@@ -1,4 +1,7 @@
 using Twilio.TwiML;
+using Twilio.TwiML.Voice;
+using Twilio.Http;
+using System;
 
 
 class Example
@@ -9,14 +12,14 @@ class Example
         var dial = new Dial();
         dial.Number("+14155555555",
             statusCallbackEvent: "initiated ringing answered completed",
-            statusCallback: "https://myapp.com/calls/events",
-            statusCallbackMethod: "POST");
+            statusCallback: new Uri("https://myapp.com/calls/events"),
+            statusCallbackMethod: HttpMethod.Post);
         dial.Number("+14153333333",
             statusCallbackEvent: "initiated ringing answered completed",
-            statusCallback: "https://example.com/events",
-            statusCallbackMethod: "POST");
-        response.Dial(dial);
+            statusCallback: new Uri("https://example.com/events"),
+            statusCallbackMethod: HttpMethod.Post);
+        response.Append(dial);
 
-        System.Console.WriteLine(response.ToString());
+        System.Console.WriteLine(response);
     }
 }

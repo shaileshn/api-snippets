@@ -1,4 +1,6 @@
 using Twilio.TwiML;
+using Twilio.TwiML.Voice;
+using System;
 
 
 class Example
@@ -8,10 +10,10 @@ class Example
         var response = new VoiceResponse();
         var dial = new Dial();
         dial.Conference("EventedConf",
-            statusCallback: "https://myapp.com/events",
+            statusCallback: new Uri("https://myapp.com/events"),
             statusCallbackEvent: "start end join leave mute hold");
-        response.Dial(dial);
+        response.Append(dial);
 
-        System.Console.WriteLine(response.ToString());
+        System.Console.WriteLine(response);
     }
 }

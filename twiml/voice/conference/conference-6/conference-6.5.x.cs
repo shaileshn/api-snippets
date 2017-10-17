@@ -1,4 +1,5 @@
 using Twilio.TwiML;
+using System;
 
 
 class Example
@@ -7,10 +8,11 @@ class Example
     {
         var response = new VoiceResponse();
         var dial = new Dial();
-        dial.Conference("NoMusicNoBeepRoom", beep: "false", waitUrl: "http://your-webhook-host.com",
+        dial.Conference("NoMusicNoBeepRoom", beep: "false",
+            waitUrl: new Uri("http://your-webhook-host.com"),
             startConferenceOnEnter: true, endConferenceOnExit: true);
-        response.Dial(dial);
+        response.Append(dial);
 
-        System.Console.WriteLine(response.ToString());
+        System.Console.WriteLine(response);
     }
 }

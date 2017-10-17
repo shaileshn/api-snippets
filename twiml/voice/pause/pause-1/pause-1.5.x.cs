@@ -10,6 +10,6 @@ class Example
         response.Pause(length: 10);
         response.Say("I just paused 10 seconds");
 
-        System.Console.WriteLine(response.ToString());
+        System.Console.WriteLine(response);
     }
 }

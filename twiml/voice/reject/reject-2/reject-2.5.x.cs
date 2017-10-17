@@ -8,6 +8,6 @@ class Example
         var response = new VoiceResponse();
         response.Reject(reason: "busy");
 
-        System.Console.WriteLine(response.ToString());
+        System.Console.WriteLine(response);
     }
 }

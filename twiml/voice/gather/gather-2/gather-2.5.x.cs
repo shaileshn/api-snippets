@@ -8,6 +8,6 @@ class Example
         var response = new VoiceResponse();
         response.Gather();
 
-        System.Console.WriteLine(response.ToString());
+        System.Console.WriteLine(response);
     }
 }
