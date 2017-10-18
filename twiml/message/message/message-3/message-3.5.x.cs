@@ -8,8 +8,9 @@ class Example
     static void Main()
     {
         var response = new MessagingResponse();
-        response.Message("Store Location: 123 Easy St.",
+        var message = new Message("Store Location: 123 Easy St.",
             action: new Uri("/SmsHandler.php"), method: HttpMethod.Post);
+        response.Append(message);
 
         System.Console.WriteLine(response);
     }

@@ -6,7 +6,7 @@ class Example
     static void Main()
     {
         var response = new MessagingResponse();
-        response.Message("I'm hungry!");
+        response.Append(new Message("I'm hungry!"));
 
         System.Console.WriteLine(response);
     }
